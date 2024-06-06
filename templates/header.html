@@ -67,6 +67,7 @@
               >
             </li>
             <!-- TODO: Only show Login/Register if user is logged out. Otherwise show "Log Out" -->
+            {% if not current_user.is_authenticated %}
             <li class="nav-item">
               <a
                 class="nav-link px-lg-3 py-3 py-lg-4"
@@ -81,6 +82,7 @@
                 >Register</a
               >
             </li>
+            {% else %}
             <li class="nav-item">
               <a
                 class="nav-link px-lg-3 py-3 py-lg-4"
@@ -88,6 +90,7 @@
                 >Log Out</a
               >
             </li>
+            {% endif %}
             <li class="nav-item">
               <a
                 class="nav-link px-lg-3 py-3 py-lg-4"
@@ -102,6 +105,12 @@
                 >Contact</a
               >
             </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a href="{{url_for('get_all_posts')}}" class="nav-link px-lg-3 py-3 py-lg-4">Hi,
+                 {{current_user.name.title()}}</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
