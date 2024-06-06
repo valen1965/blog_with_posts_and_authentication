@@ -34,6 +34,7 @@ load_dotenv(f"{os.getcwd()}/{'.env'}")
 FLASK_SECRET_KEY = os.environ.get("FLASK_SECRET_KEY")
 DB_URI = os.environ.get("DB_URI")
 
+# ; DB_URI="sqlite:///posts.db"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = FLASK_SECRET_KEY
